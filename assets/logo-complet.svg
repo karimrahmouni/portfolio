@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 260">
+  <!-- Logo complet Rahmouni Karim — monogramme en cercle + nom -->
+  <circle cx="100" cy="100" r="100" fill="#ffffff"/>
+  <g transform="translate(38,50) scale(0.62)">
+    <polygon fill="#55aecb" points="10,20 44,20 96,80 44,140 10,140 62,80"/>
+    <path fill="#202e40" fill-rule="evenodd" d="M106 20 H148 A37 37 0 0 1 148 94 L186 140 H154 L132 112 V140 H106 Z M132 46 H148 A12 12 0 0 1 148 70 H132 Z"/>
+  </g>
+  <text x="100" y="245" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-weight="700" font-size="30" fill="#202e40">Rahmouni <tspan fill="#55aecb">Karim</tspan></text>
+</svg>

@@ -1,0 +1,181 @@
+---
+import {
+  identite,
+  contact,
+  liensActifs,
+  parcours,
+  formation,
+  stack,
+  complements,
+  accroche,
+} from '../data/profil';
+---
+
+<section id="cv" class="section-gap scroll-mt-24" aria-labelledby="titre-cv">
+  <div class="shell">
+    <div class="reveal border-t border-ink-800 pt-14 no-print">
+      <p class="label">06 — CV</p>
+      <h2
+        id="titre-cv"
+        class="mt-4 max-w-[24ch] text-[clamp(1.75rem,3.6vw,2.5rem)]"
+      >
+        Le CV complet, imprimable en PDF.
+      </h2>
+      <p class="mt-5 max-w-[54ch] text-fg-2">
+        Cette section est mise en forme pour l'impression : le bouton ci-dessous
+        n'imprime que le CV, sans le reste du site. Choisissez ensuite
+        «&nbsp;Enregistrer au format PDF&nbsp;».
+      </p>
+      <button
+        type="button"
+        id="imprimer"
+        class="mt-8 rounded-sm bg-fg px-5 py-3 text-[0.875rem] font-medium text-ink-950 transition-opacity hover:opacity-85"
+      >
+        Imprimer / Enregistrer en PDF
+      </button>
+    </div>
+
+    <!-- ===== Le CV lui-même ===== -->
+    <div class="mt-16 max-w-[52rem] print:mt-0">
+      <header>
+        <h3 class="text-[clamp(1.6rem,4vw,2.25rem)] leading-tight">
+          {identite.nomComplet}
+        </h3>
+        <p class="mt-1.5 text-[1.05rem] text-fg-2 print:text-black">
+          {identite.titreLong}
+        </p>
+
+        <ul
+          class="mt-5 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[0.78rem] text-fg-3 print:text-black"
+        >
+          <li>
+            <a href={`mailto:${contact.email}`} class="print-url">{contact.email}</a>
+          </li>
+          <li><a href={`tel:${contact.telephoneUri}`}>{contact.telephone}</a></li>
+          <li>{identite.ville}, {identite.pays}</li>
+          {
+            liensActifs.map((l) => (
+              <li>
+                <a href={l.url} class="print-url">
+                  {l.libelle}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </header>
+
+      <div class="rule print-rule mt-8"></div>
+
+      <section class="mt-8">
+        <h4 class="label print:text-black">Profil</h4>
+        <p class="mt-4 text-[0.95rem] text-fg-2 print:text-black">
+          {accroche.paragraphe}
+        </p>
+        <p class="mt-3 text-[0.95rem] text-fg-2 print:text-black">
+          Aujourd'hui responsable de production chez {identite.employeurActuel} à {
+            identite.ville
+          }, je supervise une équipe de développement tout en restant au cœur du
+          code, sur des projets clients dans le domaine de l'assurance. Attention
+          particulière portée à la sécurité des données : chiffrement des bases et
+          des colonnes SQL Server, conformité RGPD et ISO&nbsp;27001.
+        </p>
+      </section>
+
+      <section class="mt-10">
+        <h4 class="label print:text-black">Expérience professionnelle</h4>
+        <ol class="mt-6 flex flex-col gap-7">
+          {
+            parcours.map((poste) => (
+              <li>
+                <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+                  <h5 class="text-[1rem] font-medium">{poste.poste}</h5>
+                  <span class="font-mono text-[0.72rem] text-fg-3 print:text-black">
+                    {poste.debut} — {poste.fin}
+                  </span>
+                </div>
+                <p class="mt-1 text-[0.875rem] text-fg-2 print:text-black">
+                  {poste.entreprise} — {poste.lieu}
+                </p>
+                <ul class="mt-3 flex flex-col gap-1.5">
+                  {poste.points.map((pt) => (
+                    <li class="relative pl-4 text-[0.875rem] text-fg-2 print:text-black">
+                      <span aria-hidden="true" class="absolute left-0">
+                        —
+                      </span>
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section class="mt-10">
+        <h4 class="label print:text-black">Compétences techniques</h4>
+        <dl class="mt-6 flex flex-col gap-3.5">
+          {
+            stack.map((groupe) => (
+              <div class="grid gap-1 sm:grid-cols-4 sm:gap-4">
+                <dt class="text-[0.875rem] font-medium sm:col-span-1">
+                  {groupe.role}
+                </dt>
+                <dd class="text-[0.875rem] text-fg-2 sm:col-span-3 print:text-black">
+                  {groupe.outils.join(' · ')}
+                </dd>
+              </div>
+            ))
+          }
+          {
+            [
+              ['Langages', complements.langages],
+              ['Front-end', complements.frontEnd],
+              ['Conception', complements.conception],
+            ].map(([titre, valeurs]) => (
+              <div class="grid gap-1 sm:grid-cols-4 sm:gap-4">
+                <dt class="text-[0.875rem] font-medium sm:col-span-1">{titre}</dt>
+                <dd class="text-[0.875rem] text-fg-2 sm:col-span-3 print:text-black">
+                  {(valeurs as readonly string[]).join(' · ')}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </section>
+
+      <section class="mt-10">
+        <h4 class="label print:text-black">Formation</h4>
+        <ul class="mt-6 flex flex-col gap-2.5">
+          {
+            formation.map((f) => (
+              <li class="flex flex-wrap items-baseline gap-x-4">
+                <span class="font-mono text-[0.72rem] text-fg-3 print:text-black">
+                  {f.annee}
+                </span>
+                <span class="text-[0.925rem] font-medium">{f.intitule}</span>
+                <span class="text-[0.875rem] text-fg-2 print:text-black">
+                  — {f.etablissement}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="mt-10">
+        <h4 class="label print:text-black">Divers</h4>
+        <p class="mt-4 text-[0.875rem] text-fg-2 print:text-black">
+          Langues : {contact.langues}. {contact.mobilite}.
+        </p>
+      </section>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById('imprimer')?.addEventListener('click', () => {
+    window.print();
+  });
+</script>

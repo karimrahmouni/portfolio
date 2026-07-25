@@ -1,0 +1,45 @@
+---
+import { axes } from '../data/profil';
+
+/** Met en évidence un mot précis du texte, sans le retirer de la phrase. */
+function accentuer(texte: string, mot: string) {
+  const i = texte.indexOf(mot);
+  if (i === -1) return [texte, '', ''] as const;
+  return [texte.slice(0, i), mot, texte.slice(i + mot.length)] as const;
+}
+---
+
+<section class="section-gap" aria-labelledby="titre-axes">
+  <div class="shell">
+    <p class="reveal label">01 — Ce que je fais</p>
+    <h2
+      id="titre-axes"
+      class="reveal mt-4 max-w-[22ch] text-[clamp(1.75rem,3.6vw,2.5rem)]"
+      style="--reveal-delay:60ms"
+    >
+      Trois choses, faites sérieusement.
+    </h2>
+
+    <div class="mt-16 grid gap-x-10 gap-y-12 md:grid-cols-3">
+      {
+        axes.map((axe, i) => {
+          const [avant, mot, apres] = accentuer(axe.titre, axe.motCle);
+          return (
+            <article
+              class="reveal border-t border-ink-800 pt-6"
+              style={`--reveal-delay:${i * 90}ms`}
+            >
+              <p class="label">{axe.numero}</p>
+              <h3 class="mt-4 text-[1.3rem] leading-snug">
+                {avant}
+                <span class="text-accent">{mot}</span>
+                {apres}
+              </h3>
+              <p class="mt-4 text-[0.95rem] text-fg-2">{axe.texte}</p>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

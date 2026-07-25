@@ -1,0 +1,50 @@
+---
+import { methode } from '../data/profil';
+---
+
+<section id="methode" class="section-gap scroll-mt-24" aria-labelledby="titre-methode">
+  <div class="shell">
+    <p class="reveal label">05 — Méthode</p>
+
+    <div class="mt-4 grid gap-10 md:grid-cols-12 md:gap-14">
+      <div class="md:col-span-6">
+        <h2
+          id="titre-methode"
+          class="reveal text-[clamp(1.75rem,3.6vw,2.5rem)]"
+          style="--reveal-delay:60ms"
+        >
+          {methode.titre}
+        </h2>
+      </div>
+
+      <div class="md:col-span-6">
+        {
+          methode.paragraphes.map((p, i) => (
+            <p
+              class="reveal text-fg-2 [&:not(:first-child)]:mt-5"
+              style={`--reveal-delay:${100 + i * 70}ms`}
+            >
+              {p}
+            </p>
+          ))
+        }
+      </div>
+    </div>
+
+    <dl class="mt-16 grid gap-x-10 gap-y-8 md:grid-cols-3">
+      {
+        methode.points.map((pt, i) => (
+          <div
+            class="reveal border-t border-ink-800 pt-6"
+            style={`--reveal-delay:${i * 90}ms`}
+          >
+            <dt class="font-mono text-[0.7rem] tracking-[0.16em] text-accent uppercase">
+              {pt.titre}
+            </dt>
+            <dd class="mt-3 text-[0.95rem] text-fg-2">{pt.texte}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>

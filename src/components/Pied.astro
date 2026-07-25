@@ -1,0 +1,34 @@
+---
+import { identite, contact, liensActifs } from '../data/profil';
+
+const annee = new Date().getFullYear();
+---
+
+<footer data-footer class="border-t border-ink-800">
+  <div
+    class="shell flex flex-col gap-6 py-10 text-[0.85rem] text-fg-3 sm:flex-row sm:items-center sm:justify-between"
+  >
+    <p>
+      © {annee} {identite.nomComplet} — {identite.titre}, {identite.ville}
+    </p>
+
+    <div class="flex items-center gap-6">
+      <a href={`mailto:${contact.email}`} class="link-u transition-colors hover:text-fg">
+        {contact.email}
+      </a>
+      {
+        liensActifs.map((l) => (
+          <a
+            href={l.url}
+            rel="me noopener"
+            target="_blank"
+            class="link-u transition-colors hover:text-fg"
+          >
+            {l.libelle}
+          </a>
+        ))
+      }
+      <a href="#haut" class="link-u transition-colors hover:text-fg">Haut de page</a>
+    </div>
+  </div>
+</footer>

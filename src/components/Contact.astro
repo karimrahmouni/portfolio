@@ -1,0 +1,65 @@
+---
+import { contact, identite, liensActifs } from '../data/profil';
+---
+
+<section id="contact" class="section-gap scroll-mt-24" aria-labelledby="titre-contact">
+  <div class="shell">
+    <div class="reveal border-t border-ink-800 pt-14">
+      <p class="label">07 — Contact</p>
+
+      <h2
+        id="titre-contact"
+        class="mt-5 max-w-[18ch] text-[clamp(2rem,5.4vw,3.5rem)] leading-[1.06]"
+      >
+        Parlons de votre <span class="text-accent">back-end</span>.
+      </h2>
+
+      <p class="mt-6 max-w-[52ch] text-fg-2">
+        Un projet .NET à cadrer, une équipe à renforcer, une application à
+        sécuriser ou à remettre en état. Écrivez-moi, je réponds.
+      </p>
+
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a
+          href={`mailto:${contact.email}`}
+          class="rounded-sm bg-accent px-6 py-3.5 text-[0.9rem] font-medium text-ink-950 transition-opacity hover:opacity-85"
+        >
+          {contact.email}
+        </a>
+        <a
+          href={`tel:${contact.telephoneUri}`}
+          class="rounded-sm border border-ink-700 px-6 py-3.5 text-[0.9rem] text-fg-2 transition-colors hover:text-fg"
+        >
+          {contact.telephone}
+        </a>
+        {
+          liensActifs.map((l) => (
+            <a
+              href={l.url}
+              target="_blank"
+              rel="me noopener"
+              class="rounded-sm border border-ink-700 px-6 py-3.5 text-[0.9rem] text-fg-2 transition-colors hover:text-fg"
+            >
+              {l.libelle}
+            </a>
+          ))
+        }
+      </div>
+
+      <dl class="mt-14 grid gap-x-10 gap-y-6 border-t border-ink-800 pt-8 sm:grid-cols-3">
+        <div>
+          <dt class="label">Localisation</dt>
+          <dd class="mt-1.5 text-[0.95rem]">{identite.ville}, {identite.pays}</dd>
+        </div>
+        <div>
+          <dt class="label">Mobilité</dt>
+          <dd class="mt-1.5 text-[0.95rem]">{contact.mobilite}</dd>
+        </div>
+        <div>
+          <dt class="label">Langues</dt>
+          <dd class="mt-1.5 text-[0.95rem]">{contact.langues}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>

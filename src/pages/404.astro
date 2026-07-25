@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import { identite } from '../data/profil';
+---
+
+<Base
+  titre={`Page introuvable — ${identite.nomComplet}`}
+  description="Cette page n'existe pas ou plus."
+>
+  <section class="shell flex min-h-[70vh] flex-col justify-center py-32">
+    <p class="label">Erreur 404</p>
+    <h1 class="mt-5 max-w-[16ch] text-[clamp(2rem,6vw,3.5rem)] leading-[1.06]">
+      Cette page n'existe pas.
+    </h1>
+    <p class="mt-5 max-w-[46ch] text-fg-2">
+      Le lien est peut-être ancien, ou l'adresse comporte une erreur de frappe.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a
+        href="/"
+        class="rounded-sm bg-fg px-6 py-3.5 text-[0.9rem] font-medium text-ink-950 transition-opacity hover:opacity-85"
+      >
+        Retour à l'accueil
+      </a>
+      <a
+        href="/#travail"
+        class="rounded-sm border border-ink-700 px-6 py-3.5 text-[0.9rem] text-fg-2 transition-colors hover:text-fg"
+      >
+        Voir le travail
+      </a>
+    </div>
+  </section>
+</Base>

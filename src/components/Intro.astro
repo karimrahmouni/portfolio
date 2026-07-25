@@ -1,0 +1,110 @@
+---
+import { identite } from '../data/profil';
+
+/**
+ * Rideau typographique joué à l'arrivée sur le site.
+ *
+ * Le voile est rendu dans le HTML mais porte l'attribut `hidden` : sans
+ * JavaScript il reste invisible et la page s'affiche normalement. Le script
+ * inline placé juste après le retire de façon synchrone — donc avant le
+ * premier rendu — lorsque l'intro doit effectivement jouer.
+ */
+
+const mots = [identite.prenom.toUpperCase(), identite.nom.toUpperCase()];
+
+type Part = { char: string; espace: boolean };
+const parts: Part[] = [];
+mots.forEach((mot, i) => {
+  if (i > 0) parts.push({ char: '', espace: true });
+  for (const c of mot) parts.push({ char: c, espace: false });
+});
+---
+
+<div id="intro" hidden aria-hidden="true">
+  <div class="intro-word">
+    {
+      parts.map((p, i) =>
+        p.espace ? (
+          <span class="sp" style={`--d:${(i * 0.055).toFixed(3)}s`} />
+        ) : (
+          <span style={`--d:${(i * 0.055).toFixed(3)}s`}>{p.char}</span>
+        )
+      )
+    }
+  </div>
+  <div class="intro-rule"></div>
+  <p class="intro-skip">Cliquez pour passer</p>
+</div>
+
+<script is:inline>
+  (function () {
+    var LEVER = 1750; // début du soulèvement
+    var DUREE = 850; // durée du soulèvement
+    var CLE = 'kr-intro-vue';
+
+    var voile = document.getElementById('intro');
+    if (!voile) return;
+
+    var doc = document.documentElement;
+    var passer;
+
+    // Conditions de non-lecture : déjà vue dans la session, ou mouvement réduit.
+    var dejaVue = false;
+    try {
+      dejaVue = sessionStorage.getItem(CLE) === '1';
+    } catch (e) {
+      /* mode privé strict : on joue l'intro, sans mémoriser */
+    }
+    var mouvementReduit =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (dejaVue || mouvementReduit) return;
+
+    // À partir d'ici l'intro joue : on révèle le voile avant tout rendu.
+    voile.hidden = false;
+    doc.classList.add('intro-locked');
+
+    var termine = false;
+    function fin() {
+      if (termine) return;
+      termine = true;
+      doc.classList.remove('intro-locked');
+      voile.remove();
+      try {
+        sessionStorage.setItem(CLE, '1');
+      } catch (e) {}
+      document.removeEventListener('keydown', surTouche);
+      // Le focus n'est pas déplacé : le voile ne l'a jamais capturé, il est
+      // donc resté au début du document. Le forcer sur le titre ferait
+      // apparaître un contour de focus dès l'arrivée sur le site.
+    }
+
+    passer = function () {
+      if (termine) return;
+      voile.classList.add('is-leaving');
+      window.setTimeout(fin, DUREE);
+    };
+
+    function surTouche(e) {
+      // Tab compris : un visiteur au clavier ne doit jamais tabuler à
+      // l'aveugle vers du contenu masqué par le voile — l'intro s'efface.
+      if (
+        e.key === 'Escape' ||
+        e.key === 'Enter' ||
+        e.key === ' ' ||
+        e.key === 'Tab'
+      ) {
+        passer();
+      }
+    }
+
+    voile.addEventListener('click', passer);
+    document.addEventListener('keydown', surTouche);
+    window.setTimeout(passer, LEVER);
+
+    // Filet de sécurité : si une animation ne se termine jamais, le voile
+    // ne doit en aucun cas rester devant le contenu.
+    window.setTimeout(fin, LEVER + DUREE + 1200);
+  })();
+</script>

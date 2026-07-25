@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Axes from '../components/Axes.astro';
+import TravailListe from '../components/TravailListe.astro';
+import Parcours from '../components/Parcours.astro';
+import Stack from '../components/Stack.astro';
+import Methode from '../components/Methode.astro';
+import CvSection from '../components/CvSection.astro';
+import Contact from '../components/Contact.astro';
+
+const etudes = (await getCollection('travail')).sort(
+  (a, b) => a.data.ordre - b.data.ordre
+);
+---
+
+<Base intro donneesStructurees>
+  <Hero />
+  <Axes />
+  <TravailListe etudes={etudes} />
+  <Parcours />
+  <Stack />
+  <Methode />
+  <CvSection />
+  <Contact />
+</Base>

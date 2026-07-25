@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karim Rahmouni — Développeur Back-end .NET | Casablanca</title>
+  <meta name="description" content="Karim Rahmouni, développeur back-end .NET avec plus de 11 ans d'expérience. Expert ASP.NET (MVC, Core, API), C#, TypeScript — assurance, banque et e-commerce. Basé à Casablanca, Maroc.">
+  <meta property="og:title" content="Karim Rahmouni — Développeur Back-end .NET">
+  <meta property="og:description" content="Plus de 11 ans d'expérience en conception de solutions web sur mesure : ASP.NET, C#, TypeScript, Azure.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#07070d">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='white'/><g transform='translate(19,25) scale(0.31)'><polygon fill='%2355aecb' points='10,20 44,20 96,80 44,140 10,140 62,80'/><path fill='%23202e40' fill-rule='evenodd' d='M106 20 H148 A37 37 0 0 1 148 94 L186 140 H154 L132 112 V140 H106 Z M132 46 H148 A12 12 0 0 1 148 70 H132 Z'/></g></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Karim Rahmouni",
+    "jobTitle": "Développeur Back-end .NET",
+    "sameAs": ["https://www.linkedin.com/in/karimrahmouni/"],
+    "address": { "@type": "PostalAddress", "addressLocality": "Casablanca", "addressCountry": "MA" },
+    "knowsAbout": ["C#", "ASP.NET Core", "Web API", "SQL Server", "Azure", "RabbitMQ", "TypeScript"],
+    "worksFor": { "@type": "Organization", "name": "Brightdev" }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Intro d'ouverture -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><circle class="logo-ring" cx="100" cy="100" r="97" fill="#ffffff"/><g transform="translate(38,50) scale(0.62)"><polygon fill="#55aecb" points="10,20 44,20 96,80 44,140 10,140 62,80"/><path fill="#202e40" fill-rule="evenodd" d="M106 20 H148 A37 37 0 0 1 148 94 L186 140 H154 L132 112 V140 H106 Z M132 46 H148 A12 12 0 0 1 148 70 H132 Z"/></g></svg>
+        <div class="logo-word logo-word-lg">Rahmouni <em>Karim</em></div>
+      </div>
+      <div class="preloader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#accueil" data-i18n="a11y.skip">Aller au contenu</a>
+
+  <!-- Curseur personnalisé (desktop) -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Barre de progression de lecture -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Grain photographique -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#accueil" class="nav-logo" data-magnetic aria-label="Accueil — Rahmouni Karim">
+        <svg viewBox="0 0 200 200" aria-hidden="true"><circle class="logo-ring" cx="100" cy="100" r="97" fill="#ffffff"/><g transform="translate(38,50) scale(0.62)"><polygon fill="#55aecb" points="10,20 44,20 96,80 44,140 10,140 62,80"/><path fill="#202e40" fill-rule="evenodd" d="M106 20 H148 A37 37 0 0 1 148 94 L186 140 H154 L132 112 V140 H106 Z M132 46 H148 A12 12 0 0 1 148 70 H132 Z"/></g></svg>
+        <span class="logo-word">Rahmouni <em>Karim</em></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
+        <a href="#accueil" class="nav-link active" data-i18n="nav.home">Accueil</a>
+        <a href="#apropos" class="nav-link" data-i18n="nav.about">À propos</a>
+        <a href="#competences" class="nav-link" data-i18n="nav.skills">Compétences</a>
+        <a href="#experience" class="nav-link" data-i18n="nav.experience">Expérience</a>
+        <a href="#projets" class="nav-link" data-i18n="nav.projects">Projets</a>
+        <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
+      </nav>
+      <div class="nav-tools">
+        <div class="lang-switch" role="group" aria-label="Langue">
+          <button type="button" data-lang="fr" class="lang-btn active">FR</button>
+          <button type="button" data-lang="en" class="lang-btn">EN</button>
+        </div>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="accueil">
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+    <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <span class="hero-badge reveal">
+          <span class="pulse-dot"></span><span data-i18n="hero.badge">Disponible pour de nouvelles opportunités</span>
+        </span>
+        <h1 class="hero-title" id="heroTitle" aria-label="Karim Rahmouni">
+          <span class="line">Karim</span>
+          <span class="line grad">Rahmouni</span>
+        </h1>
+        <h2 class="hero-role reveal delay-2"><span data-i18n="hero.role">Développeur Back-end</span> <span class="mono">.NET</span></h2>
+        <p class="hero-desc reveal delay-3" data-i18n="hero.desc">
+          Plus de <strong>11 ans d'expérience</strong> dans la conception de solutions web sur mesure.
+          Expert <strong>ASP.NET</strong> (MVC, Core, API), <strong>C#</strong> et <strong>TypeScript</strong>,
+          avec une solide expertise dans les secteurs de l'<strong>assurance</strong>, de la
+          <strong>banque</strong> et de l'<strong>e-commerce</strong>.
+        </p>
+        <div class="hero-actions reveal delay-4">
+          <a href="#contact" class="btn btn-primary" data-magnetic>
+            <span data-i18n="hero.cta1">Me contacter</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#projets" class="btn btn-ghost" data-magnetic data-i18n="hero.cta2">Voir mes projets</a>
+        </div>
+        <div class="hero-stats reveal delay-5">
+          <div class="stat">
+            <span class="stat-num" data-count="11">0</span><span class="stat-plus">+</span>
+            <span class="stat-label" data-i18n="hero.stat1">Années d'expérience</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="stat">
+            <span class="stat-num" data-count="6">0</span><span class="stat-plus">+</span>
+            <span class="stat-label" data-i18n="hero.stat2">Projets majeurs livrés</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="stat">
+            <span class="stat-num" data-count="3">0</span><span class="stat-plus"></span>
+            <span class="stat-label" data-i18n="hero.stat3">Secteurs d'expertise</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card reveal delay-3" aria-hidden="true">
+        <div class="code-window" data-tilt>
+          <div class="code-bar"><span></span><span></span><span></span><em>Developer.cs</em></div>
+          <pre><code><span class="code-line"><span class="c-kw">public class</span> <span class="c-type">Developer</span></span>
+<span class="code-line">{</span>
+<span class="code-line">    <span class="c-kw">public string</span> Name => <span class="c-str">"Karim Rahmouni"</span>;</span>
+<span class="code-line">    <span class="c-kw">public string</span> Role => <span class="c-str">"Back-end .NET"</span>;</span>
+<span class="code-line">    <span class="c-kw">public int</span> YearsOfExperience => <span class="c-num">11</span>;</span>
+<span class="code-line"></span>
+<span class="code-line">    <span class="c-kw">public string</span>[] Stack =></span>
+<span class="code-line">    [</span>
+<span class="code-line">        <span class="c-str">"C#"</span>, <span class="c-str">"ASP.NET Core"</span>, <span class="c-str">"Web API"</span>,</span>
+<span class="code-line">        <span class="c-str">"SQL Server"</span>, <span class="c-str">"Azure"</span>, <span class="c-str">"RabbitMQ"</span>,</span>
+<span class="code-line">        <span class="c-str">"Claude Code"</span> <span class="c-com">// AI-powered</span></span>
+<span class="code-line">    ];</span>
+<span class="code-line"></span>
+<span class="code-line">    <span class="c-kw">public bool</span> AvailableForHire => <span class="c-kw">true</span>;</span>
+<span class="code-line">}</span></code></pre>
+        </div>
+      </div>
+    </div>
+    <a href="#apropos" class="hero-scroll" aria-hidden="true" tabindex="-1">
+      <span data-i18n="hero.scroll">Défiler</span>
+      <span class="scroll-line"></span>
+    </a>
+  </section>
+
+  <!-- ===== Marquee ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>C#</span><span>ASP.NET Core</span><span>Web API</span><span>SQL Server</span><span>Azure</span><span>RabbitMQ</span><span>TypeScript</span><span>Entity Framework</span><span>Docker</span><span>CI/CD</span><span>MediatR</span><span>Hangfire</span><span>MassTransit</span><span>Elasticsearch</span>
+      <span>C#</span><span>ASP.NET Core</span><span>Web API</span><span>SQL Server</span><span>Azure</span><span>RabbitMQ</span><span>TypeScript</span><span>Entity Framework</span><span>Docker</span><span>CI/CD</span><span>MediatR</span><span>Hangfire</span><span>MassTransit</span><span>Elasticsearch</span>
+    </div>
+  </div>
+
+  <!-- ===== À propos ===== -->
+  <section class="section" id="apropos">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="about.tag">01 — À propos</span>
+        <h2 data-i18n="about.title">Un back-end solide,<br>du concept à la production</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p data-i18n="about.p1">
+            Développeur back-end <strong>.NET passionné</strong>, j'interviens depuis 2015 sur l'ensemble
+            du cycle de vie logiciel : analyse des besoins, modélisation UML et bases de données,
+            développement, tests, CI/CD et déploiement automatisé.
+          </p>
+          <p data-i18n="about.p2">
+            Aujourd'hui <strong>Responsable de production</strong> chez Brightdev à Casablanca, je supervise
+            une équipe de développement tout en restant au cœur du code, sur des projets clients
+            exigeants dans le domaine de l'assurance.
+          </p>
+          <p data-i18n="about.p3">
+            Je porte une attention particulière à la <strong>sécurité des données</strong> : mise en œuvre
+            du chiffrement des bases et colonnes SQL Server pour la protection des données sensibles,
+            en conformité avec les normes <strong>RGPD</strong> et <strong>ISO 27001</strong>.
+          </p>
+          <ul class="about-points">
+            <li data-i18n="about.li1">Autonome, rigoureux et impliqué dans toutes les phases d'un projet</li>
+            <li data-i18n="about.li2">Architectures asynchrones et orientées messages (RabbitMQ, Azure Service Bus)</li>
+            <li data-i18n="about.li3">Encadrement d'équipe et suivi de production</li>
+            <li data-i18n="about.li4">Développement assisté par IA (Claude Code) pour livrer plus vite, avec une qualité contrôlée</li>
+          </ul>
+        </div>
+        <aside class="about-card reveal delay-2" data-tilt>
+          <h3 data-i18n="about.info">Informations</h3>
+          <ul class="info-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><span data-i18n="about.loc">Localisation</span><strong data-i18n="about.locv">Casablanca, Maroc</strong></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              <div><span>LinkedIn</span><strong><a href="https://www.linkedin.com/in/karimrahmouni/" target="_blank" rel="noopener">linkedin.com/in/karimrahmouni</a></strong></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <div><span data-i18n="about.langs">Langues</span><strong data-i18n="about.langsv">Français · Anglais</strong></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <div><span data-i18n="about.mob">Mobilité</span><strong data-i18n="about.mobv">Mobile géographiquement · Permis B</strong></div>
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-primary btn-block" data-i18n="about.cta">Discutons de votre projet</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Compétences ===== -->
+  <section class="section section-alt" id="competences">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="skills.tag">02 — Compétences</span>
+        <h2 data-i18n="skills.title">Stack technique</h2>
+        <p class="section-sub" data-i18n="skills.sub">Un écosystème .NET complet, du langage à la mise en production.</p>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card reveal" data-tilt>
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3 data-i18n="skills.c1">Langages</h3>
+          <div class="tags"><span>C# 9.0</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span></div>
+        </article>
+        <article class="skill-card reveal delay-1" data-tilt>
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <h3 data-i18n="skills.c2">Frameworks back-end</h3>
+          <div class="tags"><span>ASP.NET MVC</span><span>.NET Core</span><span>Web API</span><span>Entity Framework</span><span>MediatR</span></div>
+        </article>
+        <article class="skill-card reveal delay-2" data-tilt>
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <h3 data-i18n="skills.c3">Bases de données</h3>
+          <div class="tags"><span>SQL Server</span><span>SQL Azure</span><span data-i18n="skills.c3t">Chiffrement BDD</span><span>RGPD / ISO 27001</span></div>
+        </article>
+        <article class="skill-card reveal" data-tilt>
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <h3 data-i18n="skills.c4">Messaging &amp; asynchrone</h3>
+          <div class="tags"><span>RabbitMQ</span><span>Azure Service Bus</span><span>MassTransit</span><span>Hangfire</span><span>Elasticsearch</span></div>
+        </article>
+        <article class="skill-card reveal delay-1" data-tilt>
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          <h3 data-i18n="skills.c5">DevOps &amp; outils</h3>
+          <div class="tags"><span>Azure DevOps</span><span>Azure Pipelines</span><span>Docker</span><span>Git</span><span>CI/CD</span><span>Serilog</span><span>NUnit</span></div>
+        </article>
+        <article class="skill-card reveal delay-2" data-tilt>
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3-3-7 7-3 3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></div>
+          <h3 data-i18n="skills.c6">Front-end &amp; conception</h3>
+          <div class="tags"><span>Kendo UI</span><span>Telerik UI</span><span>Knockout.js</span><span>jQuery</span><span>UML</span><span>Adobe XD</span></div>
+        </article>
+        <article class="skill-card skill-card-wide reveal" data-tilt>
+          <div class="skill-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></div>
+          <div class="skill-wide-body">
+            <h3 data-i18n="skills.ai">Développement assisté par IA</h3>
+            <p data-i18n="skills.aid">
+              J'intègre les outils d'IA dans mon flux de travail — notamment <strong>Claude Code</strong> —
+              pour accélérer les livrables : génération et revue de code, tests, refactoring et documentation.
+              Chaque production passe par une <strong>validation humaine rigoureuse</strong> : l'IA accélère,
+              l'expérience garantit la qualité.
+            </p>
+            <div class="tags"><span>Claude Code</span><span data-i18n="skills.ait1">Revue de code assistée</span><span data-i18n="skills.ait2">Génération de tests</span><span>Refactoring</span><span>Documentation</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Expérience ===== -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="exp.tag">03 — Parcours</span>
+        <h2 data-i18n="exp.title">Expérience professionnelle</h2>
+      </div>
+      <div class="timeline">
+        <article class="tl-item reveal">
+          <div class="tl-marker current"></div>
+          <div class="tl-content" data-tilt>
+            <div class="tl-meta">
+              <span class="tl-date" data-i18n="exp1.date">Janv. 2023 — Aujourd'hui</span>
+              <span class="tl-badge" data-i18n="exp1.badge">Poste actuel</span>
+            </div>
+            <h3 data-i18n="exp1.title">Responsable de production &amp; Développeur Back-end .NET</h3>
+            <span class="tl-company">Brightdev — Casablanca</span>
+            <ul>
+              <li data-i18n="exp1.li1">Supervision et encadrement de l'équipe de développement</li>
+              <li data-i18n="exp1.li2">Développement back-end : ASP.NET MVC / Core / API, C#, TypeScript</li>
+              <li data-i18n="exp1.li3">Réalisation de projets clients dans le domaine de l'assurance</li>
+            </ul>
+          </div>
+        </article>
+        <article class="tl-item reveal delay-1">
+          <div class="tl-marker"></div>
+          <div class="tl-content" data-tilt>
+            <div class="tl-meta"><span class="tl-date" data-i18n="exp2.date">2015 — Déc. 2022</span></div>
+            <h3 data-i18n="exp2.title">Développeur logiciel</h3>
+            <span class="tl-company">Devaxy — Casablanca</span>
+            <ul>
+              <li data-i18n="exp2.li1">Conception et développement d'applications métiers sur mesure</li>
+              <li data-i18n="exp2.li2">Implication sur toutes les étapes : analyse, modélisation, développement, tests, déploiement</li>
+              <li data-i18n="exp2.li3">Projets pour les secteurs assurance, banque, e-commerce et immobilier</li>
+            </ul>
+          </div>
+        </article>
+        <article class="tl-item reveal delay-2">
+          <div class="tl-marker"></div>
+          <div class="tl-content" data-tilt>
+            <div class="tl-meta"><span class="tl-date" data-i18n="exp3.date">Juil. 2014 — Janv. 2015</span></div>
+            <h3 data-i18n="exp3.title">Stagiaire développeur</h3>
+            <span class="tl-company">Devame — Casablanca</span>
+            <ul>
+              <li data-i18n="exp3.li1">Premiers pas professionnels dans le développement web</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="edu-row reveal">
+        <h3 class="edu-title" data-i18n="edu.title">Formation</h3>
+        <div class="edu-grid">
+          <div class="edu-card" data-tilt>
+            <span class="edu-year">2016</span>
+            <strong data-i18n="edu1.title">Licence en informatique</strong>
+            <span data-i18n="edu1.school">Faculté des Sciences Aïn Chock, Casablanca</span>
+          </div>
+          <div class="edu-card" data-tilt>
+            <span class="edu-year">2014</span>
+            <strong data-i18n="edu2.title">Diplôme ISGI</strong>
+            <span>ISGI Casablanca</span>
+          </div>
+          <div class="edu-card" data-tilt>
+            <span class="edu-year">2012</span>
+            <strong data-i18n="edu3.title">Baccalauréat scientifique</strong>
+            <span>Casablanca</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Projets ===== -->
+  <section class="section section-alt" id="projets">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-tag" data-i18n="proj.tag">04 — Réalisations</span>
+        <h2 data-i18n="proj.title">Projets majeurs</h2>
+        <p class="section-sub" data-i18n="proj.sub">Solutions livrées en sous-traitance pour des clients au Maroc — de l'e-commerce aux systèmes d'assurance.</p>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card reveal" data-tilt>
+          <div class="project-top"><span class="project-sector sector-health" data-i18n="p1.sector">Santé · E-commerce</span></div>
+          <h3 data-i18n="p1.title">Parapharmacie en ligne</h3>
+          <p data-i18n="p1.desc">Plateforme e-commerce complète pour la vente de produits parapharmaceutiques : gestion des stocks, des commandes et des paiements en ligne.</p>
+          <div class="tags tags-sm"><span>ASP.NET MVC 5</span><span>OAuth</span><span>Entity Framework</span><span>Hangfire</span><span>RabbitMQ</span><span>Telerik UI</span></div>
+        </article>
+        <article class="project-card reveal delay-1" data-tilt>
+          <div class="project-top"><span class="project-sector sector-ecom">E-commerce</span></div>
+          <h3 data-i18n="p2.title">Boutique de T-shirts personnalisés</h3>
+          <p data-i18n="p2.desc">Boutique en ligne avec configurateur visuel de T-shirts sur mesure, gestion complète des commandes et reporting personnalisé.</p>
+          <div class="tags tags-sm"><span>ASP.NET MVC 5</span><span>OAuth</span><span>MassTransit</span><span>Azure Service Bus</span><span>Reporting</span></div>
+        </article>
+        <article class="project-card reveal delay-2" data-tilt>
+          <div class="project-top"><span class="project-sector sector-data">Data · API</span></div>
+          <h3 data-i18n="p3.title">Comparateur de prix d'essence</h3>
+          <p data-i18n="p3.desc">Outil de comparaison en temps réel des prix du carburant au Maroc, par région et station-service, avec alertes et statistiques via API.</p>
+          <div class="tags tags-sm"><span data-i18n="p3.t1">API temps réel</span><span>ASP.NET MVC 5</span><span>Hangfire</span><span>RabbitMQ</span><span>Serilog</span></div>
+        </article>
+        <article class="project-card reveal" data-tilt>
+          <div class="project-top"><span class="project-sector sector-realestate" data-i18n="p4.sector">Immobilier</span></div>
+          <h3 data-i18n="p4.title">Plateforme de conseil immobilier</h3>
+          <p data-i18n="p4.desc">Gestion des biens immobiliers, des clients et des rendez-vous pour un cabinet de conseil : un CRM métier sur mesure.</p>
+          <div class="tags tags-sm"><span>ASP.NET MVC 5</span><span>Entity Framework</span><span>Hangfire</span><span>Telerik UI</span></div>
+        </article>
+        <article class="project-card reveal delay-1" data-tilt>
+          <div class="project-top"><span class="project-sector sector-bank" data-i18n="p5.sector">Banque · Fintech</span></div>
+          <h3 data-i18n="p5.title">Comparateur de banques marocaines</h3>
+          <p data-i18n="p5.desc">Comparaison d'offres bancaires (comptes, crédits, épargne) avec moteur de recherche intelligent, rapports personnalisés et tests unitaires NUnit.</p>
+          <div class="tags tags-sm"><span>ASP.NET MVC 5</span><span>NUnit</span><span>MassTransit</span><span>Reporting</span><span>OAuth</span></div>
+        </article>
+        <article class="project-card reveal delay-2 project-featured" data-tilt>
+          <div class="project-top">
+            <span class="project-sector sector-insurance" data-i18n="p6.sector">Assurance</span>
+            <span class="project-star" title="Projet phare">★</span>
+          </div>
+          <h3 data-i18n="p6.title">Gestion d'assurances maladie</h3>
+          <p data-i18n="p6.desc">Digitalisation et automatisation de la gestion des contrats et remboursements pour un courtier : système sécurisé, interconnecté et orienté API.</p>
+          <div class="tags tags-sm"><span>ASP.NET Core</span><span>API REST</span><span>JWT</span><span>MediatR</span><span>EF Core</span><span>NUnit</span><span>Azure Service Bus</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-box reveal">
+        <span class="section-tag" data-i18n="contact.tag">05 — Contact</span>
+        <h2 data-i18n="contact.title">Travaillons ensemble</h2>
+        <p data-i18n="contact.desc">Un projet .NET, une équipe à renforcer ou une mission à sécuriser ?<br>Je serai ravi d'en discuter avec vous.</p>
+        <div class="contact-actions">
+          <a href="https://www.linkedin.com/in/karimrahmouni/" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-magnetic>
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68zm1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <span data-i18n="contact.linkedin">Me contacter sur LinkedIn</span>
+          </a>
+        </div>
+        <span class="contact-loc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span data-i18n="contact.loc">Casablanca, Maroc — mobile géographiquement</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Karim Rahmouni — <span data-i18n="footer.role">Développeur Back-end .NET</span></span>
+      <a href="#accueil" class="footer-top" data-i18n="footer.top">Retour en haut ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CV — Karim Rahmouni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #0a0a14;
+    --dark-2: #141422;
+    --accent: #7c6cff;
+    --accent-2: #4cc9f0;
+    --grad: linear-gradient(120deg, #7c6cff 0%, #4cc9f0 100%);
+    --text: #1b1830;
+    --text-soft: #4e4a68;
+    --text-faint: #8a86a3;
+    --line: #e6e4f2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4; margin: 0; }
+  html, body { width: 210mm; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    font-size: 9.2pt;
+    line-height: 1.44;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { width: 210mm; height: 296.5mm; display: flex; flex-direction: column; overflow: hidden; }
+
+  /* ===== Bandeau ===== */
+  .head {
+    background: var(--dark);
+    color: #fff;
+    padding: 9mm 12mm 8mm;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .head::before {
+    content: '';
+    position: absolute; right: -30mm; top: -35mm;
+    width: 80mm; height: 80mm; border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,108,255,0.35), transparent 65%);
+  }
+  .head::after {
+    content: '';
+    position: absolute; left: 40mm; bottom: -40mm;
+    width: 70mm; height: 70mm; border-radius: 50%;
+    background: radial-gradient(circle, rgba(76,201,240,0.18), transparent 65%);
+  }
+  .head-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; gap: 8mm; }
+  .head-id { display: flex; align-items: center; gap: 5.5mm; }
+  .head-logo { height: 16mm; width: auto; flex-shrink: 0; }
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26pt; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05;
+  }
+  h1 .grad {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .head-role {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11.5pt; font-weight: 500;
+    color: #b9b4d6;
+    margin-top: 1.5mm;
+  }
+  .head-role .mono { font-family: 'JetBrains Mono', monospace; color: #a99cff; }
+  .head-contact {
+    text-align: right;
+    font-size: 8.2pt; color: #b9b4d6;
+    display: grid; gap: 1mm;
+    white-space: nowrap;
+  }
+  .head-contact strong { color: #fff; font-weight: 500; }
+  .head-badge {
+    display: inline-block;
+    margin-top: 2.5mm;
+    font-size: 7.6pt; font-weight: 600;
+    color: #7ee2a8;
+    border: 1px solid rgba(126,226,168,0.4);
+    border-radius: 99px;
+    padding: 1mm 3mm;
+  }
+
+  /* ===== Corps ===== */
+  .body { flex: 1; display: flex; min-height: 0; overflow: hidden; }
+  .col-side {
+    width: 62mm;
+    background: #f4f3fa;
+    padding: 7mm 6.5mm;
+    display: grid; gap: 4.5mm;
+    align-content: start;
+  }
+  .col-main { flex: 1; padding: 6.5mm 10mm 5mm 8mm; }
+
+  h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10pt; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-bottom: 3mm;
+    display: flex; align-items: center; gap: 2.5mm;
+  }
+  h2::after { content: ''; flex: 1; height: 2px; background: var(--grad); border-radius: 2px; opacity: 0.55; }
+
+  /* Sidebar */
+  .side-block h2 { font-size: 8.6pt; }
+  .skill-group { margin-bottom: 2.4mm; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 7.8pt; font-weight: 600;
+    color: var(--text-soft);
+    text-transform: uppercase; letter-spacing: 0.05em;
+    margin-bottom: 1.5mm;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 1.4mm; }
+  .tags span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.9pt;
+    color: var(--text-soft);
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    padding: 0.8mm 2.4mm;
+  }
+  .side-list { list-style: none; display: grid; gap: 1.6mm; font-size: 8.4pt; color: var(--text-soft); }
+  .side-list strong { color: var(--text); font-weight: 600; }
+  .edu-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.6mm; }
+  .edu-row .edu-item {
+    border: 1px solid var(--line);
+    border-radius: 2.6mm;
+    padding: 2mm 3mm;
+    margin: 0;
+  }
+  .edu-row .edu-item span:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+  .edu-item { margin-bottom: 2mm; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-year { font-family: 'JetBrains Mono', monospace; font-size: 7.4pt; color: var(--accent); }
+  .edu-item strong { display: block; font-size: 8.6pt; }
+  .edu-item span { font-size: 7.8pt; color: var(--text-faint); }
+
+  /* Main */
+  .profile { color: var(--text-soft); margin-bottom: 4mm; }
+  .profile strong { color: var(--text); font-weight: 600; }
+
+  .xp { margin-bottom: 3.5mm; padding-left: 5mm; position: relative; }
+  .xp::before {
+    content: '';
+    position: absolute; left: 0; top: 1.6mm;
+    width: 2.4mm; height: 2.4mm; border-radius: 50%;
+    background: #fff; border: 1.5px solid var(--accent);
+  }
+  .xp::after {
+    content: '';
+    position: absolute; left: 1.05mm; top: 4.8mm; bottom: -3.5mm;
+    width: 0.5mm;
+    background: linear-gradient(to bottom, var(--accent), var(--accent-2));
+    opacity: 0.35;
+  }
+  .xp:last-of-type::after { display: none; }
+  .xp-meta { display: flex; align-items: baseline; gap: 3mm; flex-wrap: wrap; }
+  .xp h3 { font-family: 'Space Grotesk', sans-serif; font-size: 10.4pt; font-weight: 600; }
+  .xp-date { font-family: 'JetBrains Mono', monospace; font-size: 7.4pt; color: var(--text-faint); margin-left: auto; }
+  .xp-co { font-size: 8.6pt; font-weight: 600; color: var(--accent); margin: 0.4mm 0 1.4mm; }
+  .xp ul { list-style: none; display: grid; gap: 0.9mm; }
+  .xp li { position: relative; padding-left: 3.6mm; color: var(--text-soft); }
+  .xp li::before { content: '›'; position: absolute; left: 0.4mm; color: var(--accent); font-weight: 700; }
+
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 2.6mm; }
+  .proj {
+    border: 1px solid var(--line);
+    border-radius: 2.6mm;
+    padding: 2.2mm 3mm;
+  }
+  .proj h3 { font-family: 'Space Grotesk', sans-serif; font-size: 8.8pt; font-weight: 600; }
+  .proj p { font-size: 7.6pt; color: var(--text-soft); margin: 0.6mm 0 1mm; }
+  .proj .stack { font-family: 'JetBrains Mono', monospace; font-size: 6.6pt; color: var(--accent); }
+  .proj.star { border-color: rgba(124,108,255,0.5); background: #faf9ff; }
+
+  .foot {
+    flex-shrink: 0;
+    background: var(--dark);
+    color: #b9b4d6;
+    font-size: 7.4pt;
+    padding: 3mm 12mm;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .foot .grad-line { color: #a99cff; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="head">
+    <div class="head-inner">
+      <div class="head-id">
+        <svg class="head-logo" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="100" fill="#ffffff"/><g transform="translate(38,50) scale(0.62)"><polygon fill="#55aecb" points="10,20 44,20 96,80 44,140 10,140 62,80"/><path fill="#202e40" fill-rule="evenodd" d="M106 20 H148 A37 37 0 0 1 148 94 L186 140 H154 L132 112 V140 H106 Z M132 46 H148 A12 12 0 0 1 148 70 H132 Z"/></g></svg>
+        <div>
+        <h1>Karim <span class="grad">Rahmouni</span></h1>
+        <div class="head-role">Développeur Back-end <span class="mono">.NET</span> — Responsable de production</div>
+        <span class="head-badge">● Disponible pour de nouvelles opportunités</span>
+        </div>
+      </div>
+      <div class="head-contact">
+        <span><strong>linkedin.com/in/karimrahmouni</strong></span>
+        <span>Casablanca, Maroc · Mobile géographiquement · Permis B</span>
+        <span>Français · Anglais</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+    <aside class="col-side">
+      <div class="side-block">
+        <h2>Compétences</h2>
+        <div class="skill-group">
+          <h3>Langages</h3>
+          <div class="tags"><span>C# 9.0</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Back-end</h3>
+          <div class="tags"><span>ASP.NET MVC</span><span>.NET Core</span><span>Web API</span><span>Entity Framework</span><span>MediatR</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Bases de données</h3>
+          <div class="tags"><span>SQL Server</span><span>SQL Azure</span><span>Chiffrement BDD</span><span>RGPD / ISO 27001</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Messaging &amp; asynchrone</h3>
+          <div class="tags"><span>RabbitMQ</span><span>Azure Service Bus</span><span>MassTransit</span><span>Hangfire</span><span>Elasticsearch</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>DevOps &amp; outils</h3>
+          <div class="tags"><span>Azure DevOps</span><span>Pipelines CI/CD</span><span>Docker</span><span>Git</span><span>Serilog</span><span>NUnit</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>Front-end &amp; conception</h3>
+          <div class="tags"><span>Kendo UI</span><span>Telerik UI</span><span>Knockout.js</span><span>jQuery</span><span>UML</span><span>Adobe XD</span></div>
+        </div>
+        <div class="skill-group">
+          <h3>IA au quotidien</h3>
+          <div class="tags"><span>Claude Code</span><span>Revue de code</span><span>Génération de tests</span><span>Refactoring</span></div>
+        </div>
+      </div>
+
+    </aside>
+
+    <main class="col-main">
+      <p class="profile">
+        Développeur back-end <strong>.NET</strong> avec plus de <strong>11 ans d'expérience</strong> dans la conception
+        de solutions web sur mesure : analyse, modélisation UML, développement, tests, CI/CD et déploiement.
+        Solide expertise dans les secteurs de l'<strong>assurance</strong>, de la <strong>banque</strong> et de
+        l'<strong>e-commerce</strong>. J'allie encadrement d'équipe et développement au quotidien, avec une
+        attention particulière à la <strong>sécurité des données</strong> et une pratique du
+        <strong>développement assisté par IA</strong> validée par une revue humaine rigoureuse.
+      </p>
+
+      <h2>Expérience professionnelle</h2>
+
+      <div class="xp">
+        <div class="xp-meta"><h3>Responsable de production &amp; Développeur Back-end .NET</h3><span class="xp-date">Janv. 2023 — Aujourd'hui</span></div>
+        <div class="xp-co">Brightdev — Casablanca</div>
+        <ul>
+          <li>Supervision et encadrement de l'équipe de développement</li>
+          <li>Développement back-end : ASP.NET MVC / Core / API, C#, TypeScript</li>
+          <li>Réalisation de projets clients dans le domaine de l'assurance</li>
+        </ul>
+      </div>
+
+      <div class="xp">
+        <div class="xp-meta"><h3>Développeur logiciel</h3><span class="xp-date">2015 — Déc. 2022</span></div>
+        <div class="xp-co">Devaxy — Casablanca</div>
+        <ul>
+          <li>Conception et développement d'applications métiers sur mesure</li>
+          <li>Toutes les étapes : analyse, modélisation, développement, tests, déploiement</li>
+          <li>Projets pour l'assurance, la banque, l'e-commerce et l'immobilier</li>
+        </ul>
+      </div>
+
+      <div class="xp">
+        <div class="xp-meta"><h3>Stagiaire développeur</h3><span class="xp-date">Juil. 2014 — Janv. 2015</span></div>
+        <div class="xp-co">Devame — Casablanca</div>
+        <ul>
+          <li>Premiers pas professionnels dans le développement web</li>
+        </ul>
+      </div>
+
+      <h2 style="margin-top:3.5mm">Projets majeurs</h2>
+      <div class="projects">
+        <div class="proj star">
+          <h3>★ Gestion d'assurances maladie</h3>
+          <p>Digitalisation des contrats et remboursements pour un courtier — système sécurisé orienté API.</p>
+          <div class="stack">ASP.NET Core · JWT · MediatR · EF Core · Azure Service Bus</div>
+        </div>
+        <div class="proj">
+          <h3>Comparateur de banques marocaines</h3>
+          <p>Offres bancaires comparées avec moteur de recherche intelligent et reporting.</p>
+          <div class="stack">ASP.NET MVC 5 · NUnit · MassTransit · OAuth</div>
+        </div>
+        <div class="proj">
+          <h3>Parapharmacie en ligne</h3>
+          <p>E-commerce complet : stocks, commandes et paiements en ligne.</p>
+          <div class="stack">ASP.NET MVC 5 · EF · Hangfire · RabbitMQ</div>
+        </div>
+        <div class="proj">
+          <h3>Comparateur de prix d'essence</h3>
+          <p>Prix du carburant en temps réel par région et station, alertes via API.</p>
+          <div class="stack">API temps réel · Hangfire · RabbitMQ · Serilog</div>
+        </div>
+      </div>
+
+      <h2 style="margin-top:3.5mm">Formation</h2>
+      <div class="edu-row">
+        <div class="edu-item">
+          <span class="edu-year">2016</span>
+          <strong>Licence en informatique</strong>
+          <span>Fac. Sciences Aïn Chock, Casablanca</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-year">2014</span>
+          <strong>Diplôme ISGI</strong>
+          <span>ISGI Casablanca</span>
+        </div>
+        <div class="edu-item">
+          <span class="edu-year">2012</span>
+          <strong>Baccalauréat scientifique</strong>
+          <span>Casablanca</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <span>Karim Rahmouni — CV 2026</span>
+    <span class="grad-line">linkedin.com/in/karimrahmouni</span>
+  </footer>
+</div>
+</body>
+</html>
